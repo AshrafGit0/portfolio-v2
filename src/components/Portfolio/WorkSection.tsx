@@ -48,9 +48,7 @@ const WorkSection = () => {
           {workExperience.map((job, index) => (
             <div key={index} className="relative mb-12 last:mb-0">
               {/* Timeline Line */}
-              {index !== workExperience.length - 1 && (
-                <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-transparent opacity-30"></div>
-              )}
+              <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-transparent opacity-30"></div>
 
               <Card className="glass-card border-0 ml-16 hover:scale-[1.02] transition-smooth">
                 <CardContent className="p-6">

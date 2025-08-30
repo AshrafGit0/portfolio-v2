@@ -6,6 +6,7 @@ import { Award, ExternalLink, Calendar, Building } from "lucide-react";
 const CertificatesSection = () => {
   const certificates = [
     {
+      id: 1,
       title: "UI Full stack with React",
       issuer: "Naresh i technologies",
       date: "2024",
@@ -26,6 +27,7 @@ const CertificatesSection = () => {
       url: "#",
     },
     {
+      id: 2,
       title: "S.O.L.I.D Principles",
       issuer: "SCALER",
       date: "2025",
@@ -42,6 +44,7 @@ const CertificatesSection = () => {
       url: "#",
     },
     {
+      id: 3,
       title: "Fundamentals of Full stack Development",
       issuer: "EXCELR",
       date: "2022",
@@ -67,9 +70,9 @@ const CertificatesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certificates.map((cert, index) => (
+          {certificates.map((certificate) => (
             <Card
-              key={index}
+              key={certificate.id}
               className="glass-card border-0 group hover:scale-105 transition-smooth"
             >
               <CardContent className="p-6">
@@ -79,7 +82,7 @@ const CertificatesSection = () => {
                     <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center glow-effect">
                       <Award className="w-6 h-6 text-white" />
                     </div>
-                    {cert.verified && (
+                    {certificate.verified && (
                       <Badge
                         variant="secondary"
                         className="text-xs bg-green-500/20 text-green-400 border-green-500/30"
@@ -99,22 +102,22 @@ const CertificatesSection = () => {
 
                 {/* Certificate Info */}
                 <h3 className="font-semibold mb-2 text-gradient">
-                  {cert.title}
+                  {certificate.title}
                 </h3>
 
                 <div className="space-y-2 min-h-14 mb-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Building className="w-4 h-4" />
-                    <span>{cert.issuer}</span>
+                    <span>{certificate.issuer}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <span>{cert.date}</span>
+                    <span>{certificate.date}</span>
                   </div>
                 </div>
 
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                  {cert.description}
+                  {certificate.description}
                 </p>
 
                 {/* Skills */}
@@ -123,7 +126,7 @@ const CertificatesSection = () => {
                     Skills Validated:
                   </h4>
                   <div className="flex flex-wrap gap-1">
-                    {cert.skills.map((skill) => (
+                    {certificate.skills.map((skill) => (
                       <Badge
                         key={skill}
                         variant="secondary"

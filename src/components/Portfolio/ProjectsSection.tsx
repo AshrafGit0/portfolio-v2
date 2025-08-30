@@ -8,6 +8,7 @@ import iceCreamShopBanner from "@/assets/ice-cream-shop-banner.png";
 const ProjectsSection = () => {
   const projects = [
     {
+      id: 1,
       title: "E-Commerce Platform",
       description:
         "A full-stack e-commerce platform with admin dashboard and real-time product management.",
@@ -36,6 +37,7 @@ const ProjectsSection = () => {
       status: "Featured | Under Development",
     },
     {
+      id: 2,
       title: "Ice Cream Shop UI",
       description:
         "Developed an interactive ice cream shop website featuring menu highlights, special offers, and key shop information.",
@@ -58,6 +60,7 @@ const ProjectsSection = () => {
       status: "Popular",
     },
     {
+      id: 3,
       title: "Portfolio Website",
       description:
         "A modern, responsive portfolio website built with the latest web technologies and design trends.",
@@ -186,9 +189,9 @@ const ProjectsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card
-              key={index}
+              key={project.id}
               className="glass-card border-0 group hover:scale-105 transition-smooth overflow-hidden"
             >
               <div className="relative">
@@ -283,9 +286,9 @@ const ProjectsSection = () => {
                 <div className="mb-4">
                   <h4 className="font-medium mb-2 text-sm">Key Features:</h4>
                   <ul className="space-y-1 md:min-h-[110px]">
-                    {project.features.map((feature, idx) => (
+                    {project.features.map((feature) => (
                       <li
-                        key={idx}
+                        key={feature}
                         className="text-xs text-muted-foreground flex items-start"
                       >
                         <span className="text-primary mr-2">•</span>
