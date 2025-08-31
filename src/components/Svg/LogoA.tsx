@@ -1,11 +1,11 @@
 // header name svg
 
-type HeaderSvg = {
+type LogoA = {
   height: number;
   width: number;
 };
 
-const HeaderSvg = ({ height = 50, width = 40 }: HeaderSvg) => {
+const LogoA = ({ height = 50, width = 40 }: LogoA) => {
   return (
     <svg
       width={width}
@@ -28,4 +28,4 @@ const HeaderSvg = ({ height = 50, width = 40 }: HeaderSvg) => {
     </svg>
   );
 };
-export default HeaderSvg;
+export default LogoA;

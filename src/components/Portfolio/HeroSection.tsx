@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import { EMAIL, GITHUB, LINKEDIN } from "@/constants";
+import { EMAIL, GITHUB, LINKEDIN, NAME } from "@/constants";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -33,7 +33,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-gradient">Mohammed Ashraf Ali</span>
+            <span className="text-gradient">{NAME}</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-4">
             Full Stack MERN Developer
@@ -61,7 +61,9 @@ const HeroSection = () => {
               size="lg"
               className="hover:scale-105 transition-smooth"
             >
-              Download CV
+              <a href="/MohammedAshrafAliResume.pdf" download>
+                Download CV
+              </a>
             </Button>
           </div>
 

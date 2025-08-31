@@ -21,7 +21,13 @@ const AboutSection = () => {
           {/* Profile Image Placeholder */}
           <div className="relative">
             <div className="glass-card p-8 h-96 flex items-center justify-center rounded-2xl">
-              <div className="w-64 h-64 rounded-full gradient-primary opacity-20 animate-float"></div>
+              <div className="w-64 h-64 rounded-full gradient-primary opacity-50 animate-float">
+                <img
+                  src="/emoji.png"
+                  alt="temporary emoji"
+                  aria-label="temporary emoji"
+                />
+              </div>
             </div>
           </div>
 
@@ -59,7 +65,7 @@ const AboutSection = () => {
               <Card className="glass-card border-0">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-gradient mb-2">
-                    50+
+                    10+
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Projects Completed
