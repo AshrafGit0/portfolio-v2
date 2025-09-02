@@ -8,6 +8,9 @@
  * like nav.ts, projects.ts, skills.ts, etc., for better organization.
  */
 
+import { EMAIL, GITHUB, LINKEDIN, LOCATION, PHONE } from "@/constants";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"; // NOSONAR
+
 // Navigation config
 export const navItems = [
   { id: "hero", label: "Home" },
@@ -17,4 +20,31 @@ export const navItems = [
   { id: "projects", label: "Projects" },
   { id: "certificates", label: "Certificates" },
   { id: "contact", label: "Contact" },
+];
+
+export const socialLinks = [
+  { icon: Github, href: GITHUB, label: "GitHub" }, // NOSONAR
+  { icon: Linkedin, href: LINKEDIN, label: "LinkedIn" }, // NOSONAR
+  { icon: Mail, href: `mailto:${EMAIL}`, label: "Email" },
+];
+
+export const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: PHONE,
+    href: `tel:${PHONE}`,
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: LOCATION,
+    href: "https://maps.app.goo.gl/9zmVayxK91rSNG5V6",
+  },
 ];

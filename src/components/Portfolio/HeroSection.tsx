@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import { EMAIL, GITHUB, LINKEDIN, NAME } from "@/constants";
+import { ActionButton } from "../common/ActionButton";
+import SocialLinks from "../common/SocialLinks";
+import { NAME } from "@/constants";
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -45,9 +46,7 @@ const HeroSection = () => {
 
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              size="lg"
-              className="gradient-primary glow-effect hover:scale-105 transition-smooth"
+            <ActionButton
               onClick={() =>
                 document
                   .getElementById("projects")!
@@ -55,40 +54,19 @@ const HeroSection = () => {
               }
             >
               View My Work
-            </Button>
-            <Button
+            </ActionButton>
+            <ActionButton
               variant="outline"
-              size="lg"
-              className="hover:scale-105 transition-smooth"
+              href="/MohammedAshrafAliResume.pdf"
+              download
             >
-              <a href="/MohammedAshrafAliResume.pdf" download>
-                Download CV
-              </a>
-            </Button>
+              Download CV
+            </ActionButton>
           </div>
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-16">
-            <a
-              href={GITHUB}
-              target="_blank"
-              className="p-3 glass-card hover:scale-110 transition-smooth group"
-            >
-              <Github className="w-6 h-6 group-hover:text-primary transition-smooth" />
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              className="p-3 glass-card hover:scale-110 transition-smooth group"
-            >
-              <Linkedin className="w-6 h-6 group-hover:text-primary transition-smooth" />
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="p-3 glass-card hover:scale-110 transition-smooth group"
-            >
-              <Mail className="w-6 h-6 group-hover:text-primary transition-smooth" />
-            </a>
+            <SocialLinks />
           </div>
         </div>
       </div>
