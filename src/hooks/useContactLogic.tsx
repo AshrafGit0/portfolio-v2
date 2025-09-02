@@ -15,7 +15,7 @@ const useContactLogic = () => {
     e.preventDefault();
     // Handle form submission
     setLoading(true);
-  console.log("Service ID:", import.meta.env.SECRET);
+  console.log("Service ID:", import.meta.env.VITE_EMAILJS_SECRET);
   console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE);
   console.log("Public Key:", import.meta.env.VITE_EMAILJS_API_KEY);
 
