@@ -1,14 +1,8 @@
-import { GITHUB, LOCATION, NAME, PHONE } from "@/constants";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { LOCATION, NAME, PHONE } from "@/constants";
+import SocialLinks from "../common/SocialLinks";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { icon: Github, href: GITHUB, label: "GitHub" },
-    { icon: Linkedin, href: GITHUB, label: "LinkedIn" },
-    { icon: Mail, href: "mailto:john.doe@example.com", label: "Email" },
-  ];
 
   const quickLinks = [
     { label: "About", href: "#about" },
@@ -18,7 +12,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="py-16 border-t border-border/20">
+    <footer className="glass-card py-16 border-t border-border/20">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
@@ -29,18 +23,7 @@ const Footer = () => {
               experiences and solving complex problems through code.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 glass-card hover:scale-110 transition-smooth group"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 group-hover:text-primary transition-smooth" />
-                </a>
-              ))}
+              <SocialLinks anchorClasses="p-2" iconClasses="w-5 h-5" />
             </div>
           </div>
 
@@ -48,8 +31,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+              {quickLinks.map((link) => (
+                <li key={link.label}>
                   <a
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-smooth"
@@ -65,9 +48,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Get In Touch</h4>
             <div className="space-y-2 flex flex-col text-muted-foreground">
-              <span>{NAME}</span>
-              <span>{PHONE}</span>
-              <span>{LOCATION}</span>
+              {[NAME, PHONE, LOCATION].map((info) => (
+                <span key={info}>{info}</span>
+              ))}
             </div>
           </div>
         </div>

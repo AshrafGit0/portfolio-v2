@@ -3,88 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  Twitter,
-  Send,
-} from "lucide-react";
-import { useState } from "react";
-import { EMAIL, GITHUB, LINKEDIN, LOCATION, PHONE } from "@/constants";
+import { Send } from "lucide-react";
+import SocialLinks from "../common/SocialLinks";
+import { contactInfo } from "@/config";
+import useContactLogic from "@/hooks/useContactLogic";
+import { ActionButton } from "../common/ActionButton";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: EMAIL,
-      href: `mailto:${EMAIL}`,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: PHONE,
-      href: `tel:${PHONE}`,
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: LOCATION,
-      href: "https://maps.app.goo.gl/9zmVayxK91rSNG5V6",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: GITHUB,
-      color: "hover:text-white",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: LINKEDIN,
-      color: "hover:text-blue-400",
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com",
-      color: "hover:text-blue-400",
-    },
-    // {
-    //   icon: Mail,
-    //   label: "Email",
-    //   href: "mailto:john.doe@example.com",
-    //   color: "hover:text-red-400",
-    // },
-  ];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const { handleInputChange, handleSubmit, formData } = useContactLogic();
 
   return (
     <section id="contact" className="py-20">
@@ -141,18 +67,7 @@ const ContactSection = () => {
             <div>
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-3 glass-card hover:scale-110 transition-smooth group ${social.color}`}
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
+                <SocialLinks iconClasses="w-5 h-5" />
               </div>
             </div>
           </div>
@@ -245,19 +160,14 @@ const ContactSection = () => {
                 projects, consulting, or full-time opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="gradient-primary glow-effect hover:scale-105 transition-smooth"
-                >
-                  Start a Project
-                </Button>
-                <Button
+                <ActionButton>Start a Project</ActionButton>
+                <ActionButton
                   variant="outline"
-                  size="lg"
-                  className="hover:scale-105 transition-smooth"
+                  href="/MohammedAshrafAliResume.pdf"
+                  download
                 >
                   Download CV
-                </Button>
+                </ActionButton>
               </div>
             </CardContent>
           </Card>

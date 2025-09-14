@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"; // NOSONAR
+import { ArrowDown } from "lucide-react"; // NOSONAR
 import heroImage from "@/assets/hero-bg.jpg";
 import { EMAIL, GITHUB, LINKEDIN, NAME } from "@/constants";
 import { motion } from "framer-motion";
@@ -95,11 +94,11 @@ const HeroSection = () => {
               }
             >
               View My Work
-            </Button>
-            <Button
+            </ActionButton>
+            <ActionButton
               variant="outline"
-              size="lg"
-              className="hover:scale-105 transition-smooth"
+              href="/MohammedAshrafAliResume.pdf"
+              download
             >
               <a href="/MohammedAshrafAliResume.pdf" download>
                 Download CV
