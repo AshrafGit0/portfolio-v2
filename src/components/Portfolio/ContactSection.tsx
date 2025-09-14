@@ -115,8 +115,8 @@ const ContactSection = () => {
 
             {/* Contact Details */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="glass-card border-0">
+              {contactInfo.map((info) => (
+                <Card key={info.label} className="glass-card border-0">
                   <CardContent className="p-4">
                     <a
                       href={info.href}
@@ -141,9 +141,9 @@ const ContactSection = () => {
             <div>
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social) => (
                   <a
-                    key={index}
+                    key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
