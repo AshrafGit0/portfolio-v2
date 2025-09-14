@@ -1,69 +1,80 @@
-# React + TypeScript + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern, responsive personal portfolio website designed to showcase mine skills, projects, work experience, certificates, and contact details. The site is built with a focus on clean design, accessibility, and performance.
 
-Currently, two official plugins are available:
+👉 **Check out the live portfolio here :** [Portfolio Live](https://mohammedashraf-portfolio.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+The portfolio features:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **About Section:** A brief introduction and background.
+- **Skills Section:** A categorized list of technical and soft skills.
+- **Projects Section:** Highlights of selected projects with descriptions and links.
+- **Work Experience:** A timeline of professional roles and achievements.
+- **Certificates:** Display of relevant certifications.
+- **Contact Section:** Easy ways to get in touch.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Chatbot Feature
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+The website includes a simple chatbot feature to assist visitors with navigation and answer common questions. This chatbot is currently basic, but future improvements are planned, such as:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Enhanced conversational abilities
+- Integration with external APIs
+- Personalized responses based on user input
+- Improved UI/UX for chat interactions
+
+## Technologies Used
+
+- **HTML5**
+- **CSS3** (with [Tailwind CSS](https://tailwindcss.com/))
+- **TypeScript**
+- **React** (with [Vite](https://vitejs.dev/) for fast development)
+- **ESLint** (for code quality)
+- **SonarQube** (for code quality)
+- **Shadcn UI** (for modern UI components)
+- **Framer-Motion** (for better animations)
+
+## Installation
+
+To run this project locally:
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/AshrafGit0/portfolio-v2.git
+cd portfolio-v2
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Install dependencies:**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. **Start the development server:**
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:5173` (or as indicated in your terminal).
+
+## Deployment
+
+To build and deploy the site:
+
+1. **Build for production:**
+
+```bash
+npm run build
+```
+
+2. **Preview the production build locally:**
+
+```bash
+npm run preview
+```
+
+3. **Deploy:**
+   Upload the contents of the `dist` folder to your preferred hosting provider (e.g., Vercel, Netlify, GitHub Pages).
