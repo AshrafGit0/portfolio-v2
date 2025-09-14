@@ -1,7 +1,8 @@
-import { ArrowDown } from "lucide-react"; // NOSONAR
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"; // NOSONAR
 import heroImage from "@/assets/hero-bg.jpg";
 import { EMAIL, GITHUB, LINKEDIN, NAME } from "@/constants";
 import { motion } from "framer-motion";
+import { ActionButton } from "../common/ActionButton";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -84,7 +85,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
             variants={itemVariants}
           >
-            <Button
+            <ActionButton
               size="lg"
               className="gradient-primary glow-effect hover:scale-105 transition-smooth"
               onClick={() =>
@@ -103,7 +104,7 @@ const HeroSection = () => {
               <a href="/MohammedAshrafAliResume.pdf" download>
                 Download CV
               </a>
-            </Button>
+            </ActionButton>
           </motion.div>
 
           {/* Social Links */}
