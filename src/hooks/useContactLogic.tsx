@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { toast } from "./use-toast";
+import { useToast } from "./use-toast";
 
 const useContactLogic = () => {
   const [formData, setFormData] = useState({
@@ -9,15 +9,13 @@ const useContactLogic = () => {
     subject: "",
     message: "",
   });
+  const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
     setLoading(true);
-    console.log("Service ID:", import.meta.env.VITE_EMAILJS_SECRET);
-    console.log("Template ID:", import.meta.env.VITE_EMAILJS_TEMPLATE);
-    console.log("Public Key:", import.meta.env.VITE_EMAILJS_API_KEY);
 
     emailjs
       .send(
@@ -40,10 +38,11 @@ const useContactLogic = () => {
             title: "Email has been sent successfully",
           });
         },
-        (error) => {
+        () => {
           setLoading(false);
-          console.log(error);
-          alert("Something went wrong.");
+          toast({
+            title: "Some Error Occurred!",
+          });
         }
       );
   };
