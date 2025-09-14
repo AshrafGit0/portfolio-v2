@@ -155,7 +155,7 @@ const AboutSection = () => {
               description:
                 "Always exploring new technologies and creative approaches",
             },
-          ].map((item, index) => (
+          ].map((item) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
