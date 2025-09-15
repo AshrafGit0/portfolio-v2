@@ -1,18 +1,21 @@
 import { navItems } from "@/config";
 import useNavigationLogic from "@/hooks/useNavigationLogic";
 import { cn } from "@/lib/utils";
-import { SheetClose } from "../ui/sheet";
 
 type Item = {
   item: { id: string; label: string };
+  onClick?: () => void;
 };
 
-const NavLinkButton = ({ item }: Item) => {
+const NavLinkButton = ({ item, onClick }: Item) => {
   const { activeSection, scrollToSection } = useNavigationLogic();
   return (
     <button
       onClick={() => {
         scrollToSection(item.id);
+        if (onClick) {
+          onClick();
+        }
       }}
       className={cn(
         "text-md md:text-sm font-medium transition-smooth hover:text-primary",
@@ -26,22 +29,16 @@ const NavLinkButton = ({ item }: Item) => {
 
 const NavItems = ({
   className,
-  isMobile = false,
+  onClick,
 }: {
   className?: string;
-  isMobile?: boolean;
+  onClick?: () => void;
 }) => {
   return (
     <div className={cn("hidden md:flex items-center md:space-x-8", className)}>
-      {navItems.map((item) =>
-        isMobile ? (
-          <SheetClose key={item.id} asChild>
-            <NavLinkButton item={item} />
-          </SheetClose>
-        ) : (
-          <NavLinkButton key={item.id} item={item} />
-        )
-      )}
+      {navItems.map((item) => (
+        <NavLinkButton key={item.id} item={item} onClick={onClick} />
+      ))}
     </div>
   );
 };

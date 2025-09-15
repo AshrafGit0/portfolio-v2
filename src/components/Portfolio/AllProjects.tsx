@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Eye, Code, ArrowLeft } from "lucide-react"; // NOSONAR
+import { Eye, ArrowLeft } from "lucide-react"; // NOSONAR
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Portfolio/Navigation";
 import Footer from "./Footer";
 import { projects } from "@/config/projects.config";
-import getStatusColor from "@/utils/get-status-colour";
+import ProjectCard from "../common/ProjectCard";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,17 +14,6 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
     },
   },
 };
@@ -95,180 +82,11 @@ const AllProjects = () => {
               animate="visible"
             >
               {projects.slice(0, visibleProjects).map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  variants={cardVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Card className="glass-card border-0 group overflow-hidden h-full">
-                    <div className="relative">
-                      {/* Project Image */}
-                      <motion.div
-                        className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <Eye className="w-16 h-16 text-muted-foreground/50" />
-                      </motion.div>
-
-                      {/* Status Badge */}
-                      <motion.div
-                        className={`absolute top-4 right-4 px-3 py-1 rounded-full ${getStatusColor(
-                          project.status
-                        )} text-white text-xs font-medium`}
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{
-                          delay: 0.2 + index * 0.05,
-                          type: "spring",
-                        }}
-                      >
-                        {project.status}
-                      </motion.div>
-
-                      {/* Overlay on Hover - Desktop */}
-                      <motion.div
-                        className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex items-center justify-center gap-4"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-                          >
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Live Demo
-                          </Button>
-                        </motion.div>
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-                          >
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </motion.div>
-                      </motion.div>
-
-                      {/* Mobile Buttons */}
-                      <div className="absolute bottom-4 left-4 right-4 flex gap-2 md:hidden">
-                        <motion.div
-                          className="flex-1"
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-white/10 border-white/20 text-white hover:bg-white/20 w-full"
-                          >
-                            <Eye className="w-4 h-4 mr-2" />
-                            Live
-                          </Button>
-                        </motion.div>
-                        <motion.div
-                          className="flex-1"
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-white/10 border-white/20 text-white hover:bg-white/20 w-full"
-                          >
-                            <Code className="w-4 h-4 mr-2" />
-                            Code
-                          </Button>
-                        </motion.div>
-                      </div>
-                    </div>
-
-                    <CardContent className="p-6">
-                      <motion.h3
-                        className="text-xl font-semibold mb-2 text-gradient"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.1 + index * 0.05 }}
-                      >
-                        {project.title}
-                      </motion.h3>
-
-                      <motion.p
-                        className="text-muted-foreground text-sm mb-4 leading-relaxed"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 + index * 0.05 }}
-                      >
-                        {project.description}
-                      </motion.p>
-
-                      <motion.div
-                        className="mb-4"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.3 + index * 0.05 }}
-                      >
-                        <h4 className="font-medium mb-2 text-sm">
-                          Key Features:
-                        </h4>
-                        <ul className="space-y-1">
-                          {project.features.slice(0, 3).map((feature, idx) => (
-                            <motion.li
-                              key={idx}
-                              className="text-xs text-muted-foreground flex items-start"
-                              initial={{ x: -20, opacity: 0 }}
-                              animate={{ x: 0, opacity: 1 }}
-                              transition={{
-                                delay: 0.4 + index * 0.05 + idx * 0.02,
-                              }}
-                            >
-                              <span className="text-primary mr-2">•</span>
-                              {feature}
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 + index * 0.05 }}
-                      >
-                        <h4 className="font-medium mb-2 text-sm">
-                          Technologies:
-                        </h4>
-                        <div className="flex flex-wrap gap-1">
-                          {project.technologies.map((tech, techIndex) => (
-                            <motion.div
-                              key={tech}
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              transition={{
-                                delay: 0.6 + index * 0.05 + techIndex * 0.02,
-                                type: "spring",
-                                stiffness: 200,
-                              }}
-                              whileHover={{ scale: 1.1 }}
-                            >
-                              <Badge variant="secondary" className="text-xs">
-                                {tech}
-                              </Badge>
-                            </motion.div>
-                          ))}
-                        </div>
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                <ProjectCard
+                  key={project.id}
+                  projectDetails={project}
+                  index={index}
+                />
               ))}
             </motion.div>
 

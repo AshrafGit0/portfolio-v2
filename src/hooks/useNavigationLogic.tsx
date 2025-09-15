@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const useNavigationLogic = () => {
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -62,7 +63,13 @@ const useNavigationLogic = () => {
     }
   };
 
-  return { scrollToSection, activeSection, isScrolled };
+  return {
+    scrollToSection,
+    activeSection,
+    isScrolled,
+    openSidebar,
+    setOpenSidebar,
+  };
 };
 
 export default useNavigationLogic;

@@ -45,22 +45,22 @@ const WorkSection = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {workExperience.map((job, index) => (
-            <div key={index} className="relative mb-12 last:mb-0">
+          {workExperience.map((job) => (
+            <div key={job.title} className="relative mb-12 last:mb-0">
               {/* Timeline Line */}
-              <div className="absolute -left-2 md:left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-transparent opacity-30"></div>
+              <div className="absolute  hidden md:block -left-2 md:left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-transparent opacity-30"></div>
 
-              <Card className="glass-card border-0 ml-8 md:ml-16 hover:scale-[1.02] transition-smooth">
+              <Card className="glass-card border-0 md:ml-16 hover:scale-[1.02] transition-smooth">
                 <CardContent className="p-6">
                   {/* Timeline Dot */}
-                  <div className="absolute -left-10 top-6 w-4 h-4 rounded-full gradient-primary glow-effect"></div>
+                  <div className="absolute hidden md:block -left-10 top-6 w-4 h-4 rounded-full gradient-primary glow-effect"></div>
 
                   <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                     <div>
                       <h3 className="text-xl font-semibold mb-2 text-gradient">
                         {job.title}
                       </h3>
-                      <div className="flex items-center gap-4 text-muted-foreground mb-2">
+                      <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 text-muted-foreground mb-2">
                         <div className="flex items-center gap-1">
                           <Building className="w-4 h-4" />
                           <span>{job.company}</span>
@@ -83,9 +83,9 @@ const WorkSection = () => {
                   <div className="mb-4">
                     <h4 className="font-semibold mb-2">Key Achievements:</h4>
                     <ul className="space-y-1">
-                      {job.achievements.map((achievement, idx) => (
+                      {job.achievements.map((achievement) => (
                         <li
-                          key={idx}
+                          key={achievement}
                           className="text-sm text-muted-foreground flex items-start"
                         >
                           <span className="text-primary mr-2">•</span>

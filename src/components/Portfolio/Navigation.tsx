@@ -13,7 +13,7 @@ import NavItems from "../common/NavItems";
 import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
-  const { isScrolled } = useNavigationLogic();
+  const { isScrolled, openSidebar, setOpenSidebar } = useNavigationLogic();
 
   return (
     <nav
@@ -30,11 +30,11 @@ const Navigation = () => {
             <ThemeToggle />
 
             {/* Mobile menu button */}
-            <Sheet>
+            <Sheet open={openSidebar} onOpenChange={setOpenSidebar}>
               <SheetTrigger asChild>
                 <MenuIcon className="cursor-pointer md:hidden mt-1" />
               </SheetTrigger>
-              <SheetContent className="w-full">
+              <SheetContent className="w-80">
                 <SheetHeader>
                   <SheetTitle>
                     <HeaderLogo />
@@ -42,7 +42,7 @@ const Navigation = () => {
                 </SheetHeader>
                 <NavItems
                   className="md:hidden mt-5 flex flex-col items-start gap-5"
-                  isMobile
+                  onClick={() => setOpenSidebar(false)}
                 />
               </SheetContent>
             </Sheet>
