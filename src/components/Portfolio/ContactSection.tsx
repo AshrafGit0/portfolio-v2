@@ -25,7 +25,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="md:grid-cols-2 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
@@ -43,7 +43,7 @@ const ContactSection = () => {
             <div className="space-y-4">
               {contactInfo.map((info) => (
                 <Card key={info.label} className="glass-card border-0">
-                  <CardContent className="p-4">
+                  <CardContent className="p-4 flex overflow-hidden">
                     <a
                       href={info.href}
                       className="flex items-center gap-4 group transition-smooth hover:scale-105"
@@ -53,7 +53,7 @@ const ContactSection = () => {
                       </div>
                       <div>
                         <p className="font-medium">{info.label}</p>
-                        <p className="text-muted-foreground group-hover:text-primary transition-smooth">
+                        <p className="text-muted-foreground group-hover:text-primary transition-smooth break-all">
                           {info.value}
                         </p>
                       </div>
@@ -73,7 +73,7 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <Card className="glass-card border-0">
+          <Card className="glass-card mt-6 border-0">
             <CardContent className="p-8">
               <h3 className="text-2xl font-semibold mb-6 text-gradient">
                 Send Message
