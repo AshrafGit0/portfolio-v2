@@ -25,7 +25,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="md:grid-cols-2 md:gap-12 max-w-6xl mx-auto">
+        <div className="md:grid md:grid-cols-2 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
